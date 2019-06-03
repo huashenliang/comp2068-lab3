@@ -7,23 +7,38 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/huashen', (req, res, next) => {
-  res.render('huashen', {});
+  res.render('huashen', {
+    cityResisding: 'Barrie', 
+    job: 'student', 
+    countryBorn: 'China', 
+  });
 });
 
-router.get('/sister', (req, res, next) => {
-  res.render('sister', {});
+router.get('/susan', (req, res, next) => {
+  res.render('susan', {
+    cityResisding: 'Barrie', 
+    job: 'Desinger', 
+    countryBorn: 'China', 
+    relation: 'sister'
+  });
 });
 
-router.get('/father', (req, res, next) => {
-  res.render('father', {});
+router.get('/shunming', (req, res, next) => {
+  res.render('shunming', {
+    cityResisding: 'Zhongshan', 
+    job: 'Businessman', 
+    countryBorn: 'China', 
+    relation: 'father'
+  });
 });
 
-router.get('/mother', (req, res, next) => {
-  res.render('mother', {});
-});
-
-router.get('/dog', (req, res, next) => {
-  res.render('dog', {});
+router.get('/liqun', (req, res, next) => {
+  res.render('liqun', {
+    cityResisding: 'Barrie', 
+    job: 'housewife', 
+    countryBorn: 'China', 
+    relation: 'mother'
+  });
 });
 
 module.exports = router;
