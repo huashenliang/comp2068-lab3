@@ -6,43 +6,48 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/huashen', (req, res, next) => {
-  res.render('person', {
-    name: 'huashen',
-    cityResisding: 'Barrie', 
-    job: 'student', 
-    countryBorn: 'China', 
-  });
-});
+const persons = [{
+  path: 'huashen',
+  name: 'huashen',
+  cityResisding: 'Barrie', 
+  job: 'student', 
+  countryBorn: 'China'
+}, {
+  path: 'susan',
+  name: 'susan',
+  cityResisding: 'Barrie', 
+  job: 'Desinger', 
+  countryBorn: 'China', 
+  relation: 'sister'
+}, {
+  path: 'shunming',
+  name: 'shunming',
+  cityResisding: 'Zhongshan', 
+  job: 'Businessman', 
+  countryBorn: 'China', 
+  relation: 'father'
+}, {
+  path: 'liqun',
+  name: 'liqun',
+  cityResisding: 'Zhongshan', 
+  job: 'housewife', 
+  countryBorn: 'China', 
+  relation: 'mother'
+}]
 
-router.get('/susan', (req, res, next) => {
-  res.render('person', {
-    name: 'susan',
-    cityResisding: 'Barrie', 
-    job: 'Desinger', 
-    countryBorn: 'China', 
-    relation: 'sister'
-  });
-});
-
-router.get('/shunming', (req, res, next) => {
-  res.render('person', {
-    name: 'shunming',
-    cityResisding: 'Zhongshan', 
-    job: 'Businessman', 
-    countryBorn: 'China', 
-    relation: 'father'
-  });
-});
-
-router.get('/liqun', (req, res, next) => {
-  res.render('person', {
-    name: 'liqun',
-    cityResisding: 'Barrie', 
-    job: 'housewife', 
-    countryBorn: 'China', 
-    relation: 'mother'
-  });
+router.get('/:name', (req, res, next) => {
+  const name = req.params.name;
+  //find the name in persons array, return the object to person
+  //where person.path is equal to name
+  const person = persons.find(per => per.path === name);
+  
+  //if no person, generate error and pass to next function
+  if (!person) {
+    return next(new Error("Person does not exist"));
+  }
+  
+  //Pass found person to the person view
+  res.render('person', person);
 });
 
 module.exports = router;

@@ -1,4 +1,18 @@
-a(href="/huashen") huashen
-a(href="/susan") susan
-a(href="/shunming") shunming 
-a(href="/liqun") liqun 
+mixin NavItem(name)
+    li.nav-item
+        a.nav-link(href=`/${name.toLowerCase()}`)= name
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='#') Lab3
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+        - var names = ['huashen', 'susan', 'shunming', 'liqun']
+        for name in names
+            +NavItem(name) 
+    //-   +NavItem('huashen')
+    //-   +NavItem('susan')
+    //-   +NavItem('shunming')
+    //-   +NavItem('liqun')
+
