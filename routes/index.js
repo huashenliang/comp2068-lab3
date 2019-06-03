@@ -10,7 +10,7 @@ router.get('/huashen', (req, res, next) => {
   res.render('huashen', {});
 });
 
-router.get('/mysister', (req, res, next) => {
+router.get('/sister', (req, res, next) => {
   res.render('sister', {});
 });
 
