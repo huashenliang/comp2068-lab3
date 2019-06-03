@@ -2,10 +2,11 @@ extends layout
 
 block content
     .container
-        h1 Huashen Liang
+        h1= name 
         ul
-            li I live in #{cityResiding}
+            li I live in #{cityResisding}
             li I was born in #{countryBorn} 
             li My job is #{job}
-            
+            if relation 
+                li I am Huashen's #{relation}
         
